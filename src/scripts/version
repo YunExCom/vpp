@@ -20,7 +20,7 @@ cd "$path"
 if [ -f .version ]; then
     vstring=$(cat .version)
 else
-    vstring=$(git describe --long --match "v*")
+    vstring=$(git describe --long --match "v*" --tags)
     if [ $? != 0 ]; then
       exit 1
     fi
@@ -43,7 +43,7 @@ fi
 
 git rev-parse 2> /dev/null
 if [ $? == 0 ]; then
-    CMT=$(git describe --dirty --long --match 'v*'| cut -s -d- -f3,4)
+    CMT=$(git describe --dirty --long --match 'v*' --tags | cut -s -d- -f3,4)
 else
     CMT=$(echo ${vstring} | cut -s -d- -f3,4)
 fi
