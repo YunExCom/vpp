@@ -574,7 +574,7 @@ svm_map_region (svm_map_region_args_t * a)
 
   if (svm_fd >= 0)
     {
-      if (fchmod (svm_fd, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP) < 0)
+      if (fchmod (svm_fd, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH) < 0)
 	clib_unix_warning ("segment chmod");
       /* This turns out to fail harmlessly if the client starts first */
       if (fchown (svm_fd, a->uid, a->gid) < 0)
