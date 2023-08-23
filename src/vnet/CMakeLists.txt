@@ -798,12 +798,14 @@ list(APPEND VNET_SOURCES
   srv6/sr_pt.c
   srv6/sr_pt_node.c
   srv6/sr_pt_api.c
+  srv6/sr_ifit.c
 )
 
 list(APPEND VNET_HEADERS
   srv6/sr_packet.h
   srv6/sr.h
   srv6/sr_pt.h
+  srv6/sr_ifit.h
 )
 
 list(APPEND VNET_API_FILES
